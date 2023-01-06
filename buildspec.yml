@@ -21,4 +21,6 @@ phases:
       - ng build
 artifacts:
   files:
-    - ${BUILD_FOLDER}/**/*
+    - "**/*"
+  base-directory:
+    - dist/social-media-angular
