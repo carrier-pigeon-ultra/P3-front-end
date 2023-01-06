@@ -6,12 +6,12 @@ version: 0.2
 
 env:
   variables:
-    BUILD_FOLDER: "dist"
+    BUILD_FOLDER: "P3-front-end/dist"
 
 phases:
   install:
     runtime-version:
-      nodejs: 18
+      nodejs: 18.x
     commands:
       - npm install
       - npm install -g @angular/cli 
