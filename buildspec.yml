@@ -17,6 +17,6 @@ phases:
       - npm install -g @angular/cli 
   build:
     commands:
-      - npm run build
+      - - ng build --prod
 artifacts:
   files:
