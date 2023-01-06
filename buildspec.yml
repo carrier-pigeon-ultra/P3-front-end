@@ -13,6 +13,7 @@ phases:
     runtime-version:
       nodejs: 18.x
     commands:
+      - sudo yum install nodejs npm --enablerepo=epl
       - npm install
       - npm install -g @angular/cli 
   build:
