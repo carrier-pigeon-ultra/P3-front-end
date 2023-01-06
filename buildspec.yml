@@ -20,3 +20,4 @@ phases:
       - ng build --prod
 artifacts:
   files:
+  base-directory: 'dist'
