@@ -10,7 +10,7 @@ env:
 
 phases:
   install:
-    runtime-version:
+    runtime-versions:
       nodejs: 18.x
     commands:
       - npm install
