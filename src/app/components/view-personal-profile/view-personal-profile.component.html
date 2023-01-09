@@ -1,7 +1,15 @@
+<app-navbar></app-navbar>
 <mat-card-content>
     <div id="profile-picture">
         
     </div>
     <mat-divider></mat-divider>
     <p> {{user.firstName}} {{user.lastName}}</p>
+    <p> Email: {{user.email}} </p>
 </mat-card-content>
+
+<div [ngClass]="['sidebyside', 'post-feed-container']">
+    <div id="post-feed" *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+    </div>
+</div>

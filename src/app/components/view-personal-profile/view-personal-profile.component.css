@@ -16,4 +16,5 @@
 
   mat-card-content { 
     justify-content: center;
+    max-height: 150px;
   }

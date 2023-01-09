@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
+import { PostService } from 'src/app/services/post.service';
+
 
 @Component({
   selector: 'app-view-personal-profile',
@@ -9,14 +12,21 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ViewPersonalProfileComponent implements OnInit {
 
-  user:User = {} as User;
+  user:User;
+  posts:Post[] = [];
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private postService:PostService) { }
 
   ngOnInit(): void {
     this.user = this.authService.currentUser;
+    this.getUserPosts();
   }
 
-  
+  getUserPosts():void {
+    this.postService.getUserPosts(this.user).subscribe( 
+      (response) => { this.posts = response; },
+      //error: (error) => { console.log(error); }
+    )
+  }
 
 }
