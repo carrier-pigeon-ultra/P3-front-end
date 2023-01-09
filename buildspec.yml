@@ -23,6 +23,11 @@ phases:
   build:
     commands:
       - ng build --configuration=production
+
+  post_build:
+    commands:
+      - aws s3 sync dist/ s3://codepipeline-us-west-2-791209503483 --delete
+
 artifacts:
   files:
     - "**/*"
