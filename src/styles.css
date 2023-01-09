@@ -179,3 +179,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.mat-card-actions {
+  color: #000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
