@@ -30,5 +30,6 @@ export class ResetPasswordComponent implements OnInit {
 
   submit() {
     let userEmail = this.resetPasswordForm.value.email;
+    this.router.navigate(['/reset-password-form']);
   }
 }
