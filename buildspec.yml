@@ -16,9 +16,12 @@ phases:
       - npm install
       - npm install -g @angular/cli
 
+  pre_build:
+    commands:
+      - ng cache clean
+
   build:
     commands:
- #     - ng cache clean
       - ng build --configuration=production
 artifacts:
   files:
