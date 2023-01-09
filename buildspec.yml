@@ -19,7 +19,7 @@ phases:
   build:
     commands:
  #     - ng cache clean
-      - ng build --prod
+      - ng build --configuration=production
 artifacts:
   files:
     - "**/*"
