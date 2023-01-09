@@ -26,7 +26,7 @@ phases:
 
   post_build:
     commands:
-      - aws s3 sync dist/ s3://codepipeline-us-west-2-791209503483 --delete
+      - aws s3 sync dist/social-media-angular s3://codepipeline-us-west-2-791209503483 --delete
 
 artifacts:
   files:
