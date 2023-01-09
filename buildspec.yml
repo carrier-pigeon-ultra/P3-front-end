@@ -16,9 +16,18 @@ phases:
       - npm install
       - npm install -g @angular/cli
 
+  pre_build:
+    commands:
+      - ng cache clean
+
   build:
     commands:
-      - ng build
+      - ng build --configuration=production
+
+  post_build:
+    commands:
+      - aws s3 sync dist/social-media-angular s3://codepipeline-us-west-2-791209503483 --delete
+
 artifacts:
   files:
     - "**/*"
