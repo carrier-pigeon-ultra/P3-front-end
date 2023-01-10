@@ -21,6 +21,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
+import { BiographyCardComponent } from './components/biography-card/biography-card.component';
+
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     SearchUserComponent,
     FooterComponent,
     MatSnackBarComponent,
+    ViewPersonalProfileComponent,
+    BiographyCardComponent,
   ],
   imports: [
     BrowserModule,
