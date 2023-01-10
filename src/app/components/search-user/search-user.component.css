@@ -1,0 +1,12 @@
+input::placeholder {
+    color: red;
+}
+
+#end-result {
+    margin-left: 50%;
+}
+
+.search-result {
+    margin-left: 10%;
+    margin-right: 10%;
+}

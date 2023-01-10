@@ -1,13 +1,13 @@
-<mat-card class="user-card">
+ <mat-card class="user-card">
     <div class="user-circle"></div>
     <mat-divider></mat-divider>
-    <p style="padding-top: 1em; font-weight: bold;">
-        {{user.firstName}} {{user.lastName}}
+    <p style="padding-top: 1em; font-weight: bold">
+        {{ user.firstName }} {{ user.lastName }}
     </p>
     <p>
-        {{user.email}}
+        {{ user.email }}
     </p>
-
+</mat-card>
     <a routerLinkActive="active" routerLink="/my-profile">
         <button mat-raised-button color="primary">My Profile</button>
     </a>

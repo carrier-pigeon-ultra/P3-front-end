@@ -1,35 +1,27 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  HostListener,
-  OnInit,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import User from 'src/app/models/User';
+import { SearchResponse } from 'src/app/models/search-response';
 import { AuthService } from 'src/app/services/auth.service';
-import { AppConstants } from 'src/app/shared/app-constants';
 import { environment } from 'src/environments/environment';
+import { MatDialog } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppConstants } from 'src/app/shared/app-constants';
 import { MatSnackBarComponent } from '../mat-snack-bar/mat-snack-bar.component';
-
+import User from 'src/app/models/User';
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
+  selector: 'app-search-user',
+  templateUrl: './search-user.component.html',
+  styleUrls: ['./search-user.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class SearchUserComponent implements OnInit {
   searchResult: User[] = [];
   searchUserFormGroup: FormGroup;
   resultPage: number = 1;
@@ -39,17 +31,18 @@ export class NavbarComponent implements OnInit {
   isValidFetchingResult: boolean = false;
   displayNoMoreResult: boolean = false;
   defaultProfilePhoto: string = environment.defaultProfilePictureUrl;
-  @ViewChild('end-result') searchResultEl: ElementRef;
-  @ViewChild('user-not-found') userNotFound: ElementRef;
+  searchBarClicked: boolean = false;
   private subscriptions: Subscription[] = [];
   constructor(
     private authService: AuthService,
-    private router: Router,
     private formBuilder: FormBuilder,
     private matDialog: MatDialog,
+    private router: Router,
     private matSnackbar: MatSnackBar
   ) {}
-
+  get searchText() {
+    return this.searchUserFormGroup.get('searchText');
+  }
   ngOnInit(): void {
     this.searchUserFormGroup = this.formBuilder.group({
       searchText: new FormControl('', [
@@ -58,33 +51,10 @@ export class NavbarComponent implements OnInit {
       ]),
     });
   }
-  get searchText() {
-    return this.searchUserFormGroup.get('searchText');
-  }
-  enteredSearchValue: string = '';
-  searchBarClicked: boolean = false;
-
-  searchBar() {
-    this.searchBarClicked = !this.searchBarClicked;
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
-  closeSearchBar() {
-    if (this.searchBarClicked) {
-      this.searchBarClicked = false;
-    }
-  }
-  //Search bar part
-
-  @Output()
-  searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
-
-  onSearchTextChanged() {
-    this.searchTextChanged.emit(this.enteredSearchValue);
-  }
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['login']);
-  }
   SearchUser(page: number): void {
     if (!this.isValidFetchingResult) {
       if (this.searchText!.value.length >= 1) {
@@ -113,6 +83,7 @@ export class NavbarComponent implements OnInit {
                   this.resultPage = 1;
                 } else {
                   this.hasMoreResultPage = true;
+                  this.searchBarClicked = true;
                 }
               },
               error: (errorResponse: HttpErrorResponse) => {
