@@ -1,0 +1,41 @@
+[{
+        "email": "Robert@gmail.com",
+        "firstName": "Robert",
+        "lastName": "the second"
+    },
+    {
+        "email": "final@gmail.com",
+        "firstName": "first",
+        "lastName": "the last"
+    },
+    {
+        "email": "last@gmail.com",
+        "firstName": "Charles",
+        "lastName": "the second"
+    },
+    {
+        "email": "Ryah@gmail.com",
+        "firstName": "Ryan",
+        "lastName": "the second"
+    },
+    {
+        "email": "Adams@gmail.com",
+        "firstName": "Adams",
+        "lastName": "the second"
+    },
+    {
+        "email": "me@gmail.com",
+        "firstName": "me",
+        "lastName": "you"
+    },
+    {
+        "email": "AndrewB@gmail.com",
+        "firstName": "Robert",
+        "lastName": "the second"
+    },
+    {
+        "email": "AndrewN@gmail.com",
+        "firstName": "Andrew",
+        "lastName": "the N"
+    }
+]
