@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-password-form',
@@ -11,11 +12,12 @@ export class ResetPasswordFormComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   submit() {
     let newPassword = this.passwordForm.value.password;
+    this.router.navigate(['/login']);
   }
 }
