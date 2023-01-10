@@ -16,6 +16,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
+import { BiographyCardComponent } from './components/biography-card/biography-card.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ViewPersonalProfileComponent } from './components/view-personal-profile
     NavbarComponent,
     UserInitialsPipe,
     ViewPersonalProfileComponent,
+    BiographyCardComponent,
   ],
   imports: [
     BrowserModule,
