@@ -18,3 +18,8 @@
     justify-content: center;
     max-height: 150px;
   }
+
+  .center {
+    margin: auto;
+    width: 50%;
+  }
