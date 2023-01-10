@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { ResetPasswordService } from 'src/app/services/reset-password.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -13,7 +14,10 @@ export class ResetPasswordComponent implements OnInit {
     email: new FormControl(''),
   });
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private resetPasswordService: ResetPasswordService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -29,8 +33,9 @@ export class ResetPasswordComponent implements OnInit {
   // }
 
   submit() {
-    let userEmail = this.resetPasswordForm.value.email;
+    let userEmail: string = this.resetPasswordForm.value.email!;
     console.log(userEmail);
+    this.resetPasswordService.processForgotPasswordForm(userEmail, 'token');
     this.router.navigate(['/login']);
   }
 }
