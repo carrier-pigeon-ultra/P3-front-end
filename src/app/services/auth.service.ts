@@ -51,22 +51,19 @@ export class AuthService {
   logout(): void {
     this.http.post(`${this.authUrl}/logout`, null).subscribe();
   }
-
-  register(
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
-  ): Observable<any> {
+  register(firstName: string, lastName: string, email: string, password: string, birthday:Date, 
+    hometown:string, currentResidence:string, biography:string): Observable<any> {
     const payload = {
       firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-    };
-    return this.http.post<any>(`${this.authUrl}/register`, payload, {
-      headers: environment.headers,
-    });
+       lastName: lastName, 
+       email: email, 
+       password: password,
+       birthday: birthday,
+       hometown: hometown,
+       currentResidence: currentResidence,
+       biography: biography
+      };
+    return this.http.post<any>(`${this.authUrl}/register`, payload, {headers: environment.headers});
   }
   storeAuthUserInCache(authUser: User): void {
     if (authUser != null) {
@@ -102,4 +99,5 @@ export class AuthService {
     throw new Error('Method not implemented.');
     //this.authToken = localStorage.getItem('authToken');
   }
+
 }

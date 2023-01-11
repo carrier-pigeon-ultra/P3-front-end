@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { SearchUserComponent } from './components/search-user/search-user.component';
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
+import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'search-bar', component: SearchUserComponent },
   { path: 'profile', component: ViewProfileComponent },
   { path: 'users/:userId', component: ViewProfileComponent },
+  { path: 'my-profile', component: ViewPersonalProfileComponent },
 ];
 
 @NgModule({

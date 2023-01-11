@@ -21,7 +21,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
+<<<<<<< HEAD
 import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+=======
+import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
+import { BiographyCardComponent } from './components/biography-card/biography-card.component';
+
+>>>>>>> da29741d96ba5a4dfa6a1442581b6edc9e4a0eec
 
 @NgModule({
   declarations: [
@@ -37,7 +43,12 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     SearchUserComponent,
     FooterComponent,
     MatSnackBarComponent,
+<<<<<<< HEAD
     ViewProfileComponent,
+=======
+    ViewPersonalProfileComponent,
+    BiographyCardComponent,
+>>>>>>> da29741d96ba5a4dfa6a1442581b6edc9e4a0eec
   ],
   imports: [
     BrowserModule,

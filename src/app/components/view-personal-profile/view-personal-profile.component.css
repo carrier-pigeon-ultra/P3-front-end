@@ -1,0 +1,25 @@
+
+#profile-picture {
+    width:10em;
+    height: 10em;
+    border-radius: 7em;
+    display: block;
+    left:auto;
+    right:auto;
+    border: 1px solid #888080;
+       
+    margin-bottom: 1em;
+  
+    background-image: url('src/assets/images/favicon.png');
+    background-size: cover;
+  }
+
+  mat-card-content { 
+    justify-content: center;
+    max-height: 150px;
+  }
+
+  .center {
+    margin: auto;
+    width: 50%;
+  }

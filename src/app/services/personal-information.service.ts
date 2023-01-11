@@ -20,4 +20,11 @@ export class PersonalInformationService {
     });
   }
 
+  updatePersonalInformation(updatedPersonalInformation: PersonalInformation): Observable<PersonalInformation> {
+    return this.http.put<PersonalInformation>(this.informationUrl, updatedPersonalInformation ,{
+      headers: environment.headers,
+      withCredentials: environment.withCredentials,
+    })
+  }
+
 }
