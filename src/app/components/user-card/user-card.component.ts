@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserCardComponent implements OnInit {
   user: User = {} as User;
-  enteredSearchValue: string = '';
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {

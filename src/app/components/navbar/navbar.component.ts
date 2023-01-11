@@ -23,6 +23,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { AppConstants } from 'src/app/shared/app-constants';
 import { environment } from 'src/environments/environment';
 import { MatSnackBarComponent } from '../mat-snack-bar/mat-snack-bar.component';
+import { SearchUserComponent } from '../search-user/search-user.component';
 
 @Component({
   selector: 'app-navbar',
@@ -64,15 +65,13 @@ export class NavbarComponent implements OnInit {
   enteredSearchValue: string = '';
   searchBarClicked: boolean = false;
 
-  searchBar() {
-    this.searchBarClicked = !this.searchBarClicked;
+  openSearchBar() {
+    this.matDialog.open(SearchUserComponent, {
+      autoFocus: true,
+      width: '500px',
+    });
   }
 
-  closeSearchBar() {
-    if (this.searchBarClicked) {
-      this.searchBarClicked = false;
-    }
-  }
   //Search bar part
 
   @Output()

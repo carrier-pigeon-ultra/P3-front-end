@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'post-feed', component: PostFeedPageComponent },
   { path: 'search-bar', component: SearchUserComponent },
+  { path: 'profile', component: ViewProfileComponent },
   { path: 'users/:userId', component: ViewProfileComponent },
 ];
 

@@ -17,6 +17,7 @@
       >
         <!-- <mat-label>search...</mat-label> -->
         <input
+          id="search-input"
           matInput
           formControlName="searchText"
           placeholder="Search for Other users here...?"
@@ -30,7 +31,7 @@
           Must be 1 to 55 characters
         </mat-error>
       </mat-form-field>
-
+      <!-- 
       <button
         mat-raised-button
         color="primary"
@@ -38,8 +39,8 @@
         class="position-absolute"
         style="top: 4px; right: 0"
       >
-        Search
-      </button>
+       
+      </button> -->
     </form>
 
     <div class="search-result" *ngIf="!noResult">
