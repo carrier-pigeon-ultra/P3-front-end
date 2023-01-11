@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SearchUserComponent,
     FooterComponent,
     MatSnackBarComponent,
+    ViewProfileComponent,
   ],
   imports: [
     BrowserModule,
