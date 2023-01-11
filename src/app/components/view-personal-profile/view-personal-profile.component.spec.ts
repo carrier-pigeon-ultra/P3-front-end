@@ -13,10 +13,11 @@ describe('ViewPersonalProfileComponent', () => {
   let component: ViewPersonalProfileComponent;
   let fixture: ComponentFixture<ViewPersonalProfileComponent>;
 
-  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus` }
+  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus`,birthday: new Date('07/06/1415'),
+    hometown:'Husenic', currentResidence:'Husenic', biography: ''}
 
   // Set up service spy for PostService
-  let postServiceSpy:jasmine.SpyObj<PostService> = jasmine.createSpyObj("PostService", ["getUserPosts"]);
+  let postServiceSpy:jasmine.SpyObj<PostService> = jasmine.createSpyObj('PostService', ['getUserPosts']);
   postServiceSpy.getAllPosts.and.returnValue( defer( () => Promise.resolve(
         [
           { id: 1, text: `test`, imageUrl: `test`, author: user, comments: [], postType: `test` },
@@ -26,9 +27,10 @@ describe('ViewPersonalProfileComponent', () => {
     )
   )
 
+  
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [``],
+      imports: [`HttpClientTestingModule`, `RouterTestingModule`],
       declarations: [ ViewPersonalProfileComponent ]
     })
     .compileComponents();
@@ -38,15 +40,8 @@ describe('ViewPersonalProfileComponent', () => {
     fixture.detectChanges();
   });
 
-  /*
-  xit('should return baseUrl', () => {
-    expect(authServiceSpy.authUrl).toEqual(environment.baseUrl);
-  });
-
-  xit('should return user', () => {
-    expect(authServiceSpy.currentUser.firstName).toEqual(user.firstName);
-  });*/
-
+  
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -67,6 +62,16 @@ describe('ViewPersonalProfileComponent', () => {
     }
 
   ))
+
+  it('should set edit to false.', () => {
+    component.edit = true;
+    component.setEditFalse(1);
+  });
+
+  it('should set edit to true'), () => {
+    component.edit = false;
+    component.setEditTrue(1);
+  }
 
 
 });

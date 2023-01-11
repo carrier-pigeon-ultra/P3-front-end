@@ -31,11 +31,11 @@ export class ViewPersonalProfileComponent implements OnInit {
     )
   }
 
-  editTrue(event:any):void {
+  setEditTrue(event:any):void {
     this.edit = true;
   }
 
-  editFalse(event:any):void {
+  setEditFalse(event:any):void {
     this.edit = false;
   }
 
