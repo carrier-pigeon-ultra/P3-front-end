@@ -17,6 +17,7 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
 import { BiographyCardComponent } from './components/biography-card/biography-card.component';
+import { EditProfileFormComponent } from './components/view-personal-profile/edit-profile-form/edit-profile-form.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { BiographyCardComponent } from './components/biography-card/biography-ca
     UserInitialsPipe,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
+    EditProfileFormComponent,
   ],
   imports: [
     BrowserModule,

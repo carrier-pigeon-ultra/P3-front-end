@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import PersonalInformation from 'src/app/models/PersonalInformation';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,6 +13,7 @@ export class BiographyCardComponent implements OnInit {
 
   user:User;
   personalInformation:PersonalInformation;
+  @Output() doneEditing:boolean;
 
   constructor(private personalInformationService:PersonalInformationService, 
     private authService:AuthService ) { }

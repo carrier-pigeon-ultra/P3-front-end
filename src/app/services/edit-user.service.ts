@@ -19,4 +19,9 @@ export class EditUserService {
   updateUserName(user:User):Observable<User> {
     return this.httpCLient.put<User>(this.editUserURL, user, this.headers);
   }
+
+  updateUserProfile(user:User):Observable<User> {
+    return this.httpCLient.put<User>(`${this.editUserURL}/profile`, user, this.headers );
+  }
+
 }
