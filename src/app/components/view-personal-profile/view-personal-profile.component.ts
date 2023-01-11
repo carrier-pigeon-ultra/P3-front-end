@@ -14,12 +14,14 @@ export class ViewPersonalProfileComponent implements OnInit {
 
   user:User;
   posts:Post[] = [];
+  edit:boolean;
 
   constructor(private authService: AuthService, private postService:PostService) { }
 
   ngOnInit(): void {
     this.user = this.authService.currentUser;
     this.getUserPosts();
+    this.edit = false;
   }
 
   getUserPosts():void {
@@ -27,6 +29,14 @@ export class ViewPersonalProfileComponent implements OnInit {
       (response) => { this.posts = response; },
       //error: (error) => { console.log(error); }
     )
+  }
+
+  editTrue():void {
+    this.edit = true;
+  }
+
+  editFalse():void {
+    this.edit = false;
   }
 
 }
