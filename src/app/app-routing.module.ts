@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
   { path: "my-profile", component: ViewPersonalProfileComponent }
+  
 ];
 
 @NgModule({
