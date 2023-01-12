@@ -13,6 +13,10 @@ const routes: Routes = [
   { path: 'post-feed', component: PostFeedPageComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'reset-password-form', component: ResetPasswordFormComponent },
+  {
+    path: 'reset-password-form/:token',
+    component: ResetPasswordFormComponent,
+  },
 ];
 
 @NgModule({

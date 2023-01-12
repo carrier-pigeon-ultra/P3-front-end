@@ -18,8 +18,8 @@ export class ResetPasswordService {
     this.http.post(`${this.resetUrl}`, payload).subscribe();
   }
 
-  resetPassword(password: string): void {
-    const payload = { password: password };
-    this.http.post(`${this.resetFormUrl}`, payload).subscribe();
-  }
+  // resetPassword(password: string): void {
+  //   const payload = { password: password };
+  //   this.http.post(`${this.resetFormUrl}`, payload).subscribe();
+  // }
 }
