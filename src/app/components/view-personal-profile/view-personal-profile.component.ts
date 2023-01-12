@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -14,12 +14,14 @@ export class ViewPersonalProfileComponent implements OnInit {
 
   user:User;
   posts:Post[] = [];
+  @Output() edit:boolean;
 
   constructor(private authService: AuthService, private postService:PostService) { }
 
   ngOnInit(): void {
     this.user = this.authService.currentUser;
     this.getUserPosts();
+    this.edit = false;
   }
 
   getUserPosts():void {
@@ -27,6 +29,14 @@ export class ViewPersonalProfileComponent implements OnInit {
       (response) => { this.posts = response; },
       //error: (error) => { console.log(error); }
     )
+  }
+
+  setEditTrue():void{
+    this.edit=true;
+  }
+
+  setEditFalse() : void {
+    this.edit=false;
   }
 
 }

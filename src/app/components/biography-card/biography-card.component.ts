@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import PersonalInformation from 'src/app/models/PersonalInformation';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
@@ -11,7 +11,7 @@ import { PersonalInformationService } from 'src/app/services/personal-informatio
 })
 export class BiographyCardComponent implements OnInit {
 
-  @Output() user:User;
+  @Input() user:User;
   personalInformation:PersonalInformation;
   @Output() doneEditing:boolean;
 
@@ -19,16 +19,7 @@ export class BiographyCardComponent implements OnInit {
     private authService:AuthService ) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
-    this.personalInformationService.getPersonalInformation().subscribe(
-        {
-          next: (response) => { this.personalInformation = response },
-          error: (error) => {
-            console.log(error);
-            this.personalInformation = new PersonalInformation(-1,0," ", " ", "  ");
-          }
-        }
-    )
+    
   }
 
 
