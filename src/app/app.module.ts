@@ -24,6 +24,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
 import { BiographyCardComponent } from './components/biography-card/biography-card.component';
 import { EditProfileFormComponent } from './components/view-personal-profile/edit-profile-form/edit-profile-form.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
 
 
 
@@ -43,7 +45,9 @@ import { EditProfileFormComponent } from './components/view-personal-profile/edi
     MatSnackBarComponent,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
-    EditProfileFormComponent
+    EditProfileFormComponent,
+    ProfileViewComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,

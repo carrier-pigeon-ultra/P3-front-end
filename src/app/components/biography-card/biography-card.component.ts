@@ -11,7 +11,7 @@ import { PersonalInformationService } from 'src/app/services/personal-informatio
 })
 export class BiographyCardComponent implements OnInit {
 
-  user:User;
+  @Output() user:User;
   personalInformation:PersonalInformation;
   @Output() doneEditing:boolean;
 

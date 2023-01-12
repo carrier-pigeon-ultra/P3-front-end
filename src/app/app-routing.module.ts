@@ -7,14 +7,14 @@ import { SearchUserComponent } from './components/search-user/search-user.compon
 
 
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'post-feed', component: PostFeedPageComponent },
   { path: 'search-bar', component: SearchUserComponent },
-  { path: 'profile', component: ViewProfileComponent },
-  { path: 'users/:userId', component: ViewProfileComponent },
+  { path: 'users/:userId', component: ProfileViewComponent },
   { path: 'my-profile', component: ViewPersonalProfileComponent },
 ];
 
