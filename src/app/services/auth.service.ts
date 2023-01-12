@@ -20,8 +20,16 @@ export class AuthService {
   loginSubject = new Subject<User>();
   private authToken: string;
   private jwtService = new JwtHelperService();
+
+
   principal: string;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+
+    if(localStorage.getItem('authUser')!==null){
+      this.currentUser = JSON.parse(localStorage.getItem('authUser') || '') as User;
+    }
+
+  }
   getUserSearchResult(
     searchText: string,
     currentPage: number,
@@ -44,12 +52,14 @@ export class AuthService {
     });
     res.subscribe((data) => {
       this.currentUser = data;
+      localStorage.setItem('authUser', JSON.stringify(this.currentUser));
     });
     return res;
   }
 
   logout(): void {
     this.http.post(`${this.authUrl}/logout`, null).subscribe();
+    localStorage.clear;
   }
   register(firstName: string, lastName: string, email: string, password: string, birthday:Date, 
     hometown:string, currentResidence:string, biography:string): Observable<any> {
@@ -99,5 +109,7 @@ export class AuthService {
     throw new Error('Method not implemented.');
     //this.authToken = localStorage.getItem('authToken');
   }
+
+ 
 
 }

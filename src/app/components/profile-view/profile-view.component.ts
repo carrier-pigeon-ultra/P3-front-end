@@ -18,7 +18,7 @@ export class ProfileViewComponent implements OnInit {
   posts:Post[] = [];
 
   constructor(private router:ActivatedRoute, private postService:PostService,
-    private userService:UserService) {
+    private userService:UserService, private authService:AuthService) {
       
 
      }

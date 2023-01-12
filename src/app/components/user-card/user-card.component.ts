@@ -15,7 +15,15 @@ export class UserCardComponent implements OnInit {
   constructor(private authService: AuthService, private router:Router) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser
+
+    console.log('UserCard init.');
+    console.log(this.authService.currentUser);
+
+    this.user = this.authService.currentUser;
+  }
+
+  ngOnChange(): void {
+    this.user = this.authService.currentUser;
   }
 
   loadViewPersonalProfileComponent(): void {

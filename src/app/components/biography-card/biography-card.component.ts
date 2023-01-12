@@ -12,7 +12,6 @@ import { PersonalInformationService } from 'src/app/services/personal-informatio
 export class BiographyCardComponent implements OnInit {
 
   @Input() user:User;
-  personalInformation:PersonalInformation;
   @Output() doneEditing:boolean;
 
   constructor(private personalInformationService:PersonalInformationService, 
@@ -21,29 +20,4 @@ export class BiographyCardComponent implements OnInit {
   ngOnInit(): void {
     
   }
-
-
-  updateBiography():void {
-    this.personalInformationService.updatePersonalInformation(this.personalInformation).subscribe(
-      {
-        next: () => {console.log(`${this.user.email} updated biography.`)},
-        error: (error) => { console.log(error); console.log(`${this.user.email} biography update failed.`)}
-        
-      }
-    )
-
-    this.personalInformationService.getPersonalInformation().subscribe(
-      {
-        next: (response) => { this.personalInformation = response },
-        error: (error) => {
-          console.log(error);
-        }
-      }
-  )
-
-  }
-  
-
-
-
 }
