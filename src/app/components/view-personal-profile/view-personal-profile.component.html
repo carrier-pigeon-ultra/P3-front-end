@@ -4,8 +4,6 @@
 
     <mat-card-content>
         <div id="profile-picture" class="center"></div>
-        <p>{{user.firstName}}</p>
-
         <div *ngIf="!edit; else loadEditForm">
             <app-biography-card [user]="user"></app-biography-card>
             <button (click)="setEditTrue()"> Edit Profile </button>

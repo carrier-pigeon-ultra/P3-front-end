@@ -4,7 +4,7 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
+//import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { SearchResponse } from '../models/search-response';
@@ -19,7 +19,7 @@ export class AuthService {
   private authUser: User;
   loginSubject = new Subject<User>();
   private authToken: string;
-  private jwtService = new JwtHelperService();
+  //private jwtService = new JwtHelperService();
 
 
   principal: string;
@@ -89,7 +89,7 @@ export class AuthService {
   getAuthUserId(): number {
     return this.getAuthUserFromCache().id;
   }
-
+  /*
   isUserLoggedIn(): boolean {
     this.loadAuthTokenFromCache();
 
@@ -108,7 +108,7 @@ export class AuthService {
   loadAuthTokenFromCache() {
     throw new Error('Method not implemented.');
     //this.authToken = localStorage.getItem('authToken');
-  }
+  }*/
 
  
 

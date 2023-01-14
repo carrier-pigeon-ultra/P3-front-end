@@ -16,6 +16,7 @@ export class ProfileViewComponent implements OnInit {
 
   user:User;
   posts:Post[] = [];
+  feed:boolean;
 
   constructor(private router:ActivatedRoute, private postService:PostService,
     private userService:UserService, private authService:AuthService) {
@@ -26,6 +27,7 @@ export class ProfileViewComponent implements OnInit {
   
 
   ngOnInit(): void {
+      this.feed = false;
       this.userService.getUserById(
         Number(this.router.snapshot.params['userId']).valueOf()
         ).subscribe(
@@ -53,6 +55,16 @@ export class ProfileViewComponent implements OnInit {
       (response) => { this.posts = response; },
       //error: (error) => { console.log(error); }
     )
+  }
+
+  showFeed():void {
+    this.feed = true;
+    this.getUserPosts();
+  }
+
+  hideFeed():void {
+    this.feed = false;
+    this.posts = [];
   }
 
 }
