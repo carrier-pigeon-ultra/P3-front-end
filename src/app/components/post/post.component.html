@@ -1,4 +1,4 @@
-<div class="post-card">
+<div class="post-card" *ngIf="post">
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
@@ -28,5 +28,8 @@
                 <button mat-raised-button color="primary" type="submit">Post</button>
             </div>
         </form>
+
+        <button (click)="deletePost()" *ngIf="postBelongsToAuthUser"> Delete </button>
+
     </mat-card>
 </div>
