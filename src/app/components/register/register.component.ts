@@ -23,10 +23,12 @@ export class RegisterComponent implements OnInit {
     
   })
   
+  badRegisterAttempt:boolean;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
+    this.badRegisterAttempt = false;
   }
   
   onSubmit(e: any): void {
@@ -36,8 +38,13 @@ export class RegisterComponent implements OnInit {
       new Date(this.registerForm.value.birthday || '01/01/0001'),
       this.registerForm.value.hometown || '', this.registerForm.value.currentResidence || '', this.registerForm.value.biography || ' ')
       .subscribe(
-        (response) => {
-          this.router.navigate(['login'])
+        {
+          next: (response) => {
+            this.router.navigate(['login'])
+          },
+          error: (error) => {
+            this.badRegisterAttempt = true;
+          }
         }
       )
   }

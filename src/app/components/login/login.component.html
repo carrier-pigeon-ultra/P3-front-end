@@ -15,5 +15,7 @@
       <button mat-stroked-button color="accent" class="btn-block" type="submit">Log in</button>
     </form>
     <a class="login-rerout-link" [routerLink]="['/register']">Don't have an account?</a>
+    <p *ngIf="badLoginAttempt" > Invalid credentials, ensure you are using valid email and password. </p>
   </mat-card>
 </div>
+
