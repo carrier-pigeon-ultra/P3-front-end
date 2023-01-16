@@ -26,6 +26,7 @@ import { BiographyCardComponent } from './components/biography-card/biography-ca
 
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
     BiographyCardComponent,
     ResetPasswordComponent,
     ResetPasswordFormComponent,
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,

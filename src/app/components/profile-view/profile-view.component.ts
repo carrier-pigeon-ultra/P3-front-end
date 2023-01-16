@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { PostService } from 'src/app/services/post.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-profile-view',
