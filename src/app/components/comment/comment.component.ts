@@ -15,7 +15,7 @@ export class CommentComponent implements OnInit {
   });
 
   @Input('comment') inputComment: Post;
-  replyToComment: boolean = false;
+  replyToComment: boolean;
   commentBelongsToAuthUser:boolean;
 
   constructor(
@@ -26,6 +26,7 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
 
     this.commentBelongsToAuthUser = (this.authService.currentUser.id === this.inputComment.author.id );
+    this.replyToComment = false;
 
   }
 
