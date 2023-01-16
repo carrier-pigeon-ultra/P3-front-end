@@ -74,8 +74,7 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     MatDialogModule,
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
 

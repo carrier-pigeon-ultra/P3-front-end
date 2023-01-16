@@ -14,14 +14,13 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "post-feed", component: PostFeedPageComponent},
   { path: 'users/:userId', component: ProfileViewComponent },
-  { path: "my-profile", component: ViewPersonalProfileComponent }
+  { path: "my-profile", component: ViewPersonalProfileComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
   { path: 'reset-password-form', component: ResetPasswordFormComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

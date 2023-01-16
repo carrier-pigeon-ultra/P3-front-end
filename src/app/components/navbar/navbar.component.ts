@@ -76,10 +76,6 @@ export class NavbarComponent implements OnInit {
   @Output()
   searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
-  //Search bar part
-
-  @Output()
-  searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
 
   onSearchTextChanged() {
     this.searchTextChanged.emit(this.enteredSearchValue);
