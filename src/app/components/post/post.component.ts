@@ -17,16 +17,34 @@ export class PostComponent implements OnInit {
   @Input('post') post: Post;
   replyToPost: boolean = false;
 
+
+  postBelongsToAuthUser:boolean;
+
   constructor(
     private postService: PostService,
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.postBelongsToAuthUser = (this.post && this.authService.currentUser.id === this.post.author.id )
+
+  }
 
   toggleReplyToPost = () => {
     this.replyToPost = !this.replyToPost;
   };
+
+  deletePost():void {
+    if(this.postBelongsToAuthUser) {
+      this.postService.deleteUserPost(this.authService.currentUser, this.post).subscribe(
+        {
+          error: (error) => { console.log(error) }
+        }
+      );
+      location.reload();
+    }
+  }
 
   submitReply = (e: any) => {
     e.preventDefault();

@@ -1,4 +1,4 @@
-<div class="post-card">
+<div class="post-card" *ngIf="post">
     <mat-card>
         <mat-card-header>
             <div mat-card-avatar class="header-image"></div>
@@ -17,6 +17,8 @@
         </mat-card-content>
         <mat-card-actions align="end">
             <button mat-raised-button color="primary" (click)="toggleReplyToPost()">Reply</button>
+            <button (click)="deletePost()" *ngIf="postBelongsToAuthUser"> Delete </button>
+
         </mat-card-actions>
         <form class="form" *ngIf="replyToPost" [formGroup]="commentForm" (ngSubmit)="submitReply($event)">
             <mat-form-field class="full-width" appearance="fill">
@@ -28,5 +30,7 @@
                 <button mat-raised-button color="primary" type="submit">Post</button>
             </div>
         </form>
+
+        
     </mat-card>
 </div>

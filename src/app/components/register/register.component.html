@@ -17,9 +17,14 @@
         <mat-form-field class="full-width">
           <input matInput placeholder="Last Name" formControlName="lastName">
         </mat-form-field>
+        <mat-form-field class="full-width">
+          <input type="date" matInput placeholder="Birthday (dd/mm/yyyy)" formControlName="birthday">
+        </mat-form-field>
       </mat-card-content>
       <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
     </form>
     <a class="login-rerout-link" [routerLink]="['/login']">Already have an account?</a>
+   
   </mat-card>
 </div>
+<p *ngIf="badRegisterAttempt"> Registration failed, ensure all fields are full, and that password has 8 or more characters, with one uppercase  and lowercase letter, as well as one number</p>

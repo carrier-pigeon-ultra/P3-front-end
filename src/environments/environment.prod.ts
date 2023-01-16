@@ -6,4 +6,6 @@ export const environment = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': ['http://localhost:4200', "http://codepipeline-us-west-2-791209503483.s3-website-us-west-2.amazonaws.com"], 
   },
+  defaultProfilePictureUrl:
+    'http://localhost:4200/assets/images/avatar-man.jpg',
 };

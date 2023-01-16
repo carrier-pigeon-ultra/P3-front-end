@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Post from '../models/Post';
+import User from '../models/User'
 
 @Injectable({
   providedIn: 'root',
@@ -32,4 +33,19 @@ export class PostService {
       withCredentials: environment.withCredentials,
     });
   }
+
+  getUserPosts(user:User):Observable<Post[]> {
+    return this.http.get<Post[]>( `${this.postUrl}/${user.id}`, { 
+      headers: environment.headers, 
+      withCredentials: environment.withCredentials,
+    });
+  }
+
+  deleteUserPost(user:User, post:Post): Observable<Post> {
+    return this.http.delete<Post>(`${this.postUrl}/${post.id}`, {
+      headers: environment.headers,
+      withCredentials: environment.withCredentials,
+    });
+  }
+
 }
