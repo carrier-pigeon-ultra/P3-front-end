@@ -1,10 +1,27 @@
 input::placeholder {
-    color: red;
+  color: red;
 }
 
 #end-result {
-    margin-left: 50%;
+  margin-left: 50%;
 }
+
+.search-result {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* #search-input {
+  position: fixed;
+  top: 5;
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 10px;
+  height: 45px;
+  writing-mode: horizontal-tb !important;
+  border-radius: 6px;
+  border-color: rgb(20, 18, 18);
+} */
 
 .search-result {
     margin-left: 10%;

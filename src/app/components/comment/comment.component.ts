@@ -16,13 +16,18 @@ export class CommentComponent implements OnInit {
 
   @Input('comment') inputComment: Post;
   replyToComment: boolean = false;
+  commentBelongsToAuthUser:boolean;
 
   constructor(
     private postService: PostService,
     private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.commentBelongsToAuthUser = (this.authService.currentUser.id === this.inputComment.author.id );
+
+  }
 
   toggleReplyToComment = () => {
     this.replyToComment = !this.replyToComment;
@@ -48,4 +53,15 @@ export class CommentComponent implements OnInit {
         this.toggleReplyToComment();
       });
   };
+
+  deletePost():void {
+    if(this.commentBelongsToAuthUser) {
+      this.postService.deleteUserPost(this.authService.currentUser, this.inputComment).subscribe(
+        {
+          error: (error) => { console.log(error) }
+        }
+      );
+      location.reload();
+    }
+  }
 }

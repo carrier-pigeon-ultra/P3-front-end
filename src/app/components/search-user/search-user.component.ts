@@ -31,7 +31,10 @@ export class SearchUserComponent implements OnInit {
   isValidFetchingResult: boolean = false;
   displayNoMoreResult: boolean = false;
   defaultProfilePhoto: string = environment.defaultProfilePictureUrl;
-  searchBarClicked: boolean = false;
+
+  currentPage: number; // the current page number
+  resultsPerPage: number; // the number of results to display per page
+  totalResults: number; // the total number of search results
   private subscriptions: Subscription[] = [];
   constructor(
     private authService: AuthService,
@@ -83,7 +86,6 @@ export class SearchUserComponent implements OnInit {
                   this.resultPage = 1;
                 } else {
                   this.hasMoreResultPage = true;
-                  this.searchBarClicked = true;
                 }
               },
               error: (errorResponse: HttpErrorResponse) => {

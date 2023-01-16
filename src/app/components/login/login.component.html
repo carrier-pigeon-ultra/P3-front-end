@@ -28,5 +28,6 @@
     <a class="after-login" [routerLink]="['/reset-password']"
       >Forgot your password?</a
     >
+    <p *ngIf="badLoginAttempt" > Invalid credentials, ensure you are using valid email and password. </p>
   </mat-card>
 </div>

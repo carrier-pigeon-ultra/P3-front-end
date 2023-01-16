@@ -41,4 +41,11 @@ export class PostService {
     });
   }
 
+  deleteUserPost(user:User, post:Post): Observable<Post> {
+    return this.http.delete<Post>(`${this.postUrl}/${post.id}`, {
+      headers: environment.headers,
+      withCredentials: environment.withCredentials,
+    });
+  }
+
 }

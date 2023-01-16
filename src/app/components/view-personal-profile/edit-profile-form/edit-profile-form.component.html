@@ -1,0 +1,27 @@
+
+<form class="form" [formGroup]="editProfileForm" (ngSubmit)="onSave($event)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="First Name" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Last Name" formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input type="date" matInput placeholder="Birthday" formControlName="birthday">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Hometown" formControlName="hometown">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Current Residence" formControlName="currentResidence">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Biography" formControlName="biography">
+      </mat-form-field>
+    </mat-card-content>
+    <button mat-stroked-button color="accent" class="btn-block">Save Profile</button>
+  </form>   

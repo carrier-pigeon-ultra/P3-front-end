@@ -23,10 +23,13 @@ import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.c
 import { MatDialogModule } from '@angular/material/dialog';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
 import { BiographyCardComponent } from './components/biography-card/biography-card.component';
-
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+import { EditProfileFormComponent } from './components/view-personal-profile/edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
+import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+
+
 
 @NgModule({
   declarations: [
@@ -42,11 +45,17 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
     SearchUserComponent,
     FooterComponent,
     MatSnackBarComponent,
+    SearchUserComponent,
+    FooterComponent,
+    MatSnackBarComponent,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
     ResetPasswordComponent,
     ResetPasswordFormComponent,
-    ProfileViewComponent
+    ProfileViewComponent,
+    EditProfileFormComponent,
+    ProfileViewComponent,
+    ViewProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -59,8 +68,14 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
     FormsModule,
     MatSnackBarModule,
     MatDialogModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    MatSnackBarModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
+

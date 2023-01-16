@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
+import { UserResponse } from 'src/app/models/userresponse';
+import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile-view',
@@ -13,21 +16,56 @@ export class ProfileViewComponent implements OnInit {
 
   user:User;
   posts:Post[] = [];
+  feed:boolean;
 
-  constructor(private postService:PostService) { }
+  constructor(private router:ActivatedRoute, private postService:PostService,
+    private userService:UserService, private authService:AuthService) {
+      
+
+     }
+
+  
 
   ngOnInit(): void {
+      this.feed = false;
+      this.userService.getUserById(
+        Number(this.router.snapshot.params['userId']).valueOf()
+        ).subscribe(
+         
+            
+         (response) => {   console.log(response)
+
+          this.user = response;
+          
+         }
+             
+        
+      
+      );
+
+      this.getUserPosts();
+    
     
   }
+
+    
 
   getUserPosts():void {
     this.postService.getUserPosts(this.user).subscribe( 
       (response) => { this.posts = response; },
+      //error: (error) => { console.log(error); }
     )
   }
 
-  viewProfile(user:User): void {
-    this.user = user;
+  showFeed():void {
+    this.feed = true;
     this.getUserPosts();
   }
+
+  hideFeed():void {
+    this.feed = false;
+    this.posts = [];
+  }
+
 }
+
