@@ -24,6 +24,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
 import { BiographyCardComponent } from './components/biography-card/biography-card.component';
 
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { BiographyCardComponent } from './components/biography-card/biography-ca
     MatSnackBarComponent,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
+    ResetPasswordComponent,
+    ResetPasswordFormComponent,
   ],
   imports: [
     BrowserModule,

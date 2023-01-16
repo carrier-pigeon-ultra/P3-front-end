@@ -6,15 +6,24 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
 import { RegisterComponent } from './components/register/register.component';
 import { SearchUserComponent } from './components/search-user/search-user.component';
 import { ViewPersonalProfileComponent } from './components/view-personal-profile/view-personal-profile.component';
+import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'post-feed', component: PostFeedPageComponent },
   { path: 'search-bar', component: SearchUserComponent },
-  { path: "my-profile", component: ViewPersonalProfileComponent },
-  { path: "profile", component: ProfileViewComponent }
-]
+  { path: 'my-profile', component: ViewPersonalProfileComponent },
+  { path: 'profile', component: ProfileViewComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password-form', component: ResetPasswordFormComponent },
+  {
+    path: 'reset-password-form/:token',
+    component: ResetPasswordFormComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
