@@ -3,7 +3,7 @@ import { defer } from 'rxjs';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { PostService } from 'src/app/services/post.service';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PostFeedPageComponent } from './post-feed-page.component';
 
 describe('PostFeedPageComponent', () => {
@@ -12,9 +12,11 @@ describe('PostFeedPageComponent', () => {
   let postServiceSpy: jasmine.SpyObj<PostService>;
   let testPost: Post;
   beforeEach(async () => {
-    postServiceSpy = jasmine.createSpyObj<PostService>("PostService",["upsertPost"])
+    postServiceSpy = jasmine.createSpyObj<PostService>("PostService",['upsertPost'])
     await TestBed.configureTestingModule({
-      declarations: [ PostFeedPageComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ PostFeedPageComponent ],
+      providers: [PostService]
     })
     .compileComponents();
     testPost = new Post(
