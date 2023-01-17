@@ -31,7 +31,7 @@ import { SearchUserComponent } from '../search-user/search-user.component';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  searchResult: User[] = [];
+  searchResult: User[] = [] as User[];
   searchUserFormGroup: FormGroup;
   resultPage: number = 1;
   pageSize: number = 5;
