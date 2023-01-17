@@ -6,18 +6,20 @@ import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
 import { UserService } from 'src/app/services/user.service';
 import { ProfileViewComponent } from './profile-view.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { defer } from 'rxjs';
 
 describe('ProfileViewComponent', () => {
   let component: ProfileViewComponent;
   let fixture: ComponentFixture<ProfileViewComponent>;
-  let dummyRouter = {
+  /*let dummyRouter:ActivatedRoute = {
     snapshot: {
-      params: { 'userId':1 }
+      paramMap: convertToParamMap({ id:'userId'})
     }
-  };
+  };*/
+
+  
 
   let postServiceSpyObj;
   let authService;
@@ -28,13 +30,12 @@ describe('ProfileViewComponent', () => {
       declarations: [ ProfileViewComponent ],
       imports:[ HttpClientTestingModule ],
       providers: [ AuthService, PostService, UserResponse, UserService, 
-        { provide: ActivatedRoute,
-          useValue: {
-            snapshot: {
-              params: { 'userId':1 }
-            }
-          } 
-        }]
+        { provide: ActivatedRoute, useValue: {
+          snapshot: {
+            params: { 'userId': 1}
+          }
+        } 
+      }]
     })
     .compileComponents();
 
@@ -43,7 +44,7 @@ describe('ProfileViewComponent', () => {
     fixture.detectChanges();
 
      // To parse observables
-     function asyncData<T>(data:T) {
+    function asyncData<T>(data:T) {
       return defer( () => Promise.resolve(data) )
     }
 
@@ -58,9 +59,11 @@ describe('ProfileViewComponent', () => {
     userServiceSpyObj.getUserById.and.returnValue(asyncData(authService.currentUser));
 
 
+    
 
   });
 
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
