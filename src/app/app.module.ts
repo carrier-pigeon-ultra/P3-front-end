@@ -27,7 +27,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 import { EditProfileFormComponent } from './components/view-personal-profile/edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
-import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+
 
 
 
@@ -54,8 +54,7 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     ResetPasswordFormComponent,
     ProfileViewComponent,
     EditProfileFormComponent,
-    ProfileViewComponent,
-    ViewProfileComponent
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,
