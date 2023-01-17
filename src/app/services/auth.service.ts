@@ -25,8 +25,8 @@ export class AuthService {
   principal: string;
   constructor(private http: HttpClient) {
 
-    if(localStorage.getItem('authUser')!==null){
-      this.currentUser = JSON.parse(localStorage.getItem('authUser') || '') as User;
+    if(sessionStorage.getItem('authUser')!==null){
+      this.currentUser = JSON.parse(sessionStorage.getItem('authUser') || '') as User;
     }
 
   }
