@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { CommentComponent } from './comment.component';
@@ -6,12 +6,15 @@ import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
+import { defer, Observable } from 'rxjs';
 
 describe('CommentComponent', () => {
   let component: CommentComponent;
   let fixture: ComponentFixture<CommentComponent>;
   let authService;
   let postServiceSpyObj = jasmine.createSpyObj<PostService>('PostService',[ 'upsertPost', 'deleteUserPost']);
+  let toUpsert:Post;
+  let e = jasmine.createSpyObj('e', ['preventDefault'])
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -32,6 +35,20 @@ describe('CommentComponent', () => {
     component.inputComment = new Post(0,"","",author,[],'COMMENT')
 
     fixture.detectChanges();
+
+    // To parse observables
+    function asyncData<T>(data:T) {
+      return defer( () => Promise.resolve(data) )
+    }
+
+    // Setup Post service spy
+
+      // Post to be upserted
+    toUpsert =  new Post(0,"","",author,[],'COMMENT')
+    postServiceSpyObj.upsertPost.and.returnValue(asyncData(toUpsert));
+
+    // Mock e event.
+    
   });
 
   
@@ -53,10 +70,20 @@ describe('CommentComponent', () => {
 
   })
 
-  it('should set input comment field to input comment', () => {
+  it('should set input comment field to input comment', waitForAsync(() => {
 
-  
+        component.submitReply(e);
 
-  })
+        fixture.whenStable().then( () => {
+
+            expect(component.inputComment).toEqual(toUpsert);
+
+          }
+
+        )
+
+      }
+    )
+  )
 
 });
