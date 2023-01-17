@@ -52,14 +52,14 @@ export class AuthService {
     });
     res.subscribe((data) => {
       this.currentUser = data;
-      localStorage.setItem('authUser', JSON.stringify(this.currentUser));
+      sessionStorage.setItem('authUser', JSON.stringify(this.currentUser));
     });
     return res;
   }
 
   logout(): void {
     this.http.post(`${this.authUrl}/logout`, null).subscribe();
-    localStorage.clear;
+    sessionStorage.clear;
   }
   register(firstName: string, lastName: string, email: string, password: string, birthday:Date, 
     hometown:string, currentResidence:string, biography:string): Observable<any> {
@@ -78,12 +78,12 @@ export class AuthService {
   storeAuthUserInCache(authUser: User): void {
     if (authUser != null) {
       this.authUser = authUser;
-      localStorage.setItem('authUser', JSON.stringify(authUser));
+      sessionStorage.setItem('authUser', JSON.stringify(authUser));
     }
     this.loginSubject.next(authUser);
   }
   getAuthUserFromCache(): User {
-    return JSON.parse(localStorage.getItem('authUser') || '{}');
+    return JSON.parse(sessionStorage.getItem('authUser') || '{}');
   }
 
   getAuthUserId(): number {
