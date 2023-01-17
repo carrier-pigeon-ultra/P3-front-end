@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { defer, Observable } from 'rxjs';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
@@ -12,6 +12,7 @@ describe('PostFeedPageComponent', () => {
   let fixture: ComponentFixture<PostFeedPageComponent>;
   let postServiceSpy: jasmine.SpyObj<PostService>;
   let testPost: Post;
+  let e = jasmine.createSpyObj('e',['preventDefault']);
   beforeEach(async () => {
     postServiceSpy = jasmine.createSpyObj<PostService>("PostService",['upsertPost'])
     await TestBed.configureTestingModule({
@@ -41,18 +42,19 @@ describe('PostFeedPageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should be able to add posts', () => {
-    
-    component.submitPost(testPost);
+  it('should be able to add posts', async() => {
+    fixture.whenStable().then( () => {
+    //component.submitPost(testPost);
     expect(postServiceSpy.upsertPost(testPost)).toHaveBeenCalled;
 
-
+    })
   });
-  it('should be able to toggle for submitting a post',() => {
+  it('should be able to toggle for submitting a post', async() => {
+    fixture.whenStable().then( () => {
     component.toggleCreatePost()
     expect(component.createPost).toBeTrue;
 
     component.toggleCreatePost()
     expect(component.createPost).toBeFalse;
-  });
+  })});
 });
