@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { defer } from 'rxjs';
+import { defer, Observable } from 'rxjs';
 import Post from 'src/app/models/Post';
 import User from 'src/app/models/User';
 import { PostService } from 'src/app/services/post.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PostFeedPageComponent } from './post-feed-page.component';
 
@@ -16,7 +17,7 @@ describe('PostFeedPageComponent', () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       declarations: [ PostFeedPageComponent ],
-      providers: [PostService]
+      providers: [PostService, AuthService]
     })
     .compileComponents();
     testPost = new Post(
