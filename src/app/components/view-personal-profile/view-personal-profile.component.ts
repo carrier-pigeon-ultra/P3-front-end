@@ -27,7 +27,7 @@ export class ViewPersonalProfileComponent implements OnInit {
   getUserPosts():void {
     this.postService.getUserPosts(this.user).subscribe( 
       (response) => { this.posts = response; },
-      //error: (error) => { console.log(error); }
+ 
     )
   }
 
