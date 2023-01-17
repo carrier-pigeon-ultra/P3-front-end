@@ -11,6 +11,7 @@ export const environment = {
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://localhost:4200',
+    
   },
   defaultProfilePictureUrl:
     'http://localhost:4200/assets/images/avatar-man.jpg',
@@ -24,3 +25,5 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+
+

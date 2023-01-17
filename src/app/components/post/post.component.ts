@@ -27,7 +27,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.postBelongsToAuthUser = (this.post && this.authService.currentUser.id === this.post.author.id )
+    this.postBelongsToAuthUser = (this.post && this.authService.getCurrentUser().id === this.post.author.id )
 
   }
 
@@ -37,7 +37,7 @@ export class PostComponent implements OnInit {
 
   deletePost():void {
     if(this.postBelongsToAuthUser) {
-      this.postService.deleteUserPost(this.authService.currentUser, this.post).subscribe(
+      this.postService.deleteUserPost(this.authService.getCurrentUser(), this.post).subscribe(
         {
           error: (error) => { console.log(error) }
         }

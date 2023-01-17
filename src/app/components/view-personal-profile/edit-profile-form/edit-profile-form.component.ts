@@ -22,7 +22,7 @@ export class EditProfileFormComponent implements OnInit {
   constructor(private authService:AuthService, private editUserService:EditUserService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getCurrentUser();
     this.editProfileForm = new FormGroup({
       firstName: new FormControl(this.user.firstName),
       lastName: new FormControl(this.user.lastName),

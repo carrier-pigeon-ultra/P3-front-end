@@ -9,19 +9,20 @@ import { environment } from 'src/environments/environment';
 import Post from '../models/Post';
 import User from '../models/User';
 import { UserResponse } from '../models/userresponse';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private hostUrl = environment.baseUrl;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private authService:AuthService) {}
 
   getUserById(userId: number): Observable<User> {
     return this.httpClient.get<User>(
       `${this.hostUrl}/auth/users/search/${userId}`,
       {
-        headers: environment.headers,
+        headers: this.authService.getAuthenticationHeaders(),
         withCredentials: environment.withCredentials,
       }
     );

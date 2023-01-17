@@ -19,7 +19,7 @@ export class ViewPersonalProfileComponent implements OnInit {
   constructor(private authService: AuthService, private postService:PostService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getCurrentUser();
     this.getUserPosts();
     this.edit = false;
   }

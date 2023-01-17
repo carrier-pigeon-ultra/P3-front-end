@@ -22,11 +22,11 @@ export class UserCardComponent implements OnInit {
     console.log('UserCard init.');
     console.log(this.authService.currentUser);
 
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getCurrentUser();
   }
 
   ngOnChange(): void {
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getCurrentUser();
   }
 
   loadViewPersonalProfileComponent(): void {
