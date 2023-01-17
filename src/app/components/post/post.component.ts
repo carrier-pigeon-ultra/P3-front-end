@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
+
 
 @Component({
   selector: 'app-post',
@@ -13,7 +14,7 @@ export class PostComponent implements OnInit {
   commentForm = new FormGroup({
     text: new FormControl(''),
   });
-
+  @Output() postDeleted = new EventEmitter<boolean>;
   @Input('post') post: Post;
   replyToPost: boolean = false;
 
@@ -42,7 +43,7 @@ export class PostComponent implements OnInit {
           error: (error) => { console.log(error) }
         }
       );
-      location.reload();
+      this.postDeleted.emit(true);
     }
   }
 

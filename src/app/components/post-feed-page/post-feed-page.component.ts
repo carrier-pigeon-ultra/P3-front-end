@@ -24,6 +24,7 @@ export class PostFeedPageComponent implements OnInit {
 
   posts: Post[] = [];
   createPost: boolean = false;
+  
 
   constructor(
     private postService: PostService,
