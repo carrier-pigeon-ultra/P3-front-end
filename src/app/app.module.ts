@@ -17,7 +17,6 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchUserComponent } from './components/search-user/search-user.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -43,10 +42,8 @@ import { ProfileViewComponent } from './components/profile-view/profile-view.com
     NavbarComponent,
     UserInitialsPipe,
     SearchUserComponent,
-    FooterComponent,
     MatSnackBarComponent,
     SearchUserComponent,
-    FooterComponent,
     MatSnackBarComponent,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
