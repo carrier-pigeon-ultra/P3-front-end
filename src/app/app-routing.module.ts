@@ -9,14 +9,14 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
 const routes: Routes = [
-  { path: "", redirectTo: "/login", pathMatch: "full" },
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "post-feed", component: PostFeedPageComponent},
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'post-feed', component: PostFeedPageComponent },
   { path: 'users/:userId', component: ProfileViewComponent },
-  { path: "my-profile", component: ViewPersonalProfileComponent },
+  { path: 'my-profile', component: ViewPersonalProfileComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
-  { path: 'reset-password-form', component: ResetPasswordFormComponent },
+  { path: 'reset-password-form/:token', component: ResetPasswordFormComponent },
 ];
 
 @NgModule({
@@ -24,3 +24,5 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+// http://codepipeline-us-west-2-791209503483.s3-website-us-west-2.amazonaws.com/reset-password-form/qAOTRmaPY55exSpgen24YUe16dQadqDU9RcJ1viMPKGgd
