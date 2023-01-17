@@ -17,7 +17,6 @@ import { UserInitialsPipe } from './pipes/user-initials.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchUserComponent } from './components/search-user/search-user.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FooterComponent } from './components/footer/footer.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSnackBarComponent } from './components/mat-snack-bar/mat-snack-bar.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -27,7 +26,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ResetPasswordFormComponent } from './components/reset-password-form/reset-password-form.component';
 import { EditProfileFormComponent } from './components/view-personal-profile/edit-profile-form/edit-profile-form.component';
 import { ProfileViewComponent } from './components/profile-view/profile-view.component';
-import { ViewProfileComponent } from './components/view-profile/view-profile.component';
+
 
 
 
@@ -43,10 +42,8 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     NavbarComponent,
     UserInitialsPipe,
     SearchUserComponent,
-    FooterComponent,
     MatSnackBarComponent,
     SearchUserComponent,
-    FooterComponent,
     MatSnackBarComponent,
     ViewPersonalProfileComponent,
     BiographyCardComponent,
@@ -54,8 +51,7 @@ import { ViewProfileComponent } from './components/view-profile/view-profile.com
     ResetPasswordFormComponent,
     ProfileViewComponent,
     EditProfileFormComponent,
-    ProfileViewComponent,
-    ViewProfileComponent
+    ProfileViewComponent
   ],
   imports: [
     BrowserModule,

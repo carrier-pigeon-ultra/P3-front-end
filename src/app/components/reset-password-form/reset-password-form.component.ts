@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./reset-password-form.component.css'],
 })
 export class ResetPasswordFormComponent implements OnInit {
-  resetUrl: string = `${environment.baseUrl}/reset-password-form`;
+  resetUrl: string;
   passwordForm = new FormGroup({
     password: new FormControl(''),
   });
@@ -28,6 +28,7 @@ export class ResetPasswordFormComponent implements OnInit {
   submit() {
     let newPassword: string = this.passwordForm.value.password!;
     let token: string = this.activatedRoute.snapshot.params['token'];
+    this.resetUrl = `${environment.baseUrl}/reset-password-form/${token}`;
     this.passwordChange.resetPassword(newPassword, token);
     this.router.navigate(['/login']);
   }
