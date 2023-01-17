@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
-import PersonalInformation from 'src/app/models/PersonalInformation';
 import User from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
