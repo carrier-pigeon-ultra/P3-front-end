@@ -7,12 +7,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 This is the front end portion of the carrier-pigeon-ultra social media web application, the backend can be found at https://github.com/carrier-pigeon-ultra/P3-back-end
 
 # Software versions
-Node: 18.70
-Node Package Manager: 8.15.0
-TypeScript Compiler: 4.9.4
-JavaScript: es2020
-angular: 14.0.6
-
+<ul>
+  <li>Node: 18.70</li>
+  <li>Node Package Manager: 8.15.0</li>
+  <li>TypeScript Compiler: 4.9.4</li>
+  <li>JavaScript: es2020</li>
+  <li>angular: 14.0.6</li>
+</ul>
 # Contributers
 Blake Rhynes - blaker859
 Robert Lei - SleepingGlaceon
