@@ -9,12 +9,24 @@ import { PostService } from 'src/app/services/post.service';
 import { defer, Observable } from 'rxjs';
 
 describe('CommentComponent', () => {
+
+
+  
+
+  let authService = jasmine.createSpyObj<AuthService>('AuthService', ['getCurrentUser'])
+  let author:User = { id: 0, email:"email", firstName:"John", lastName:'Wiliamson', biography:"", 
+  passwordResetToken:'', hometown:"", currentResidence:"", birthday: new Date(),} as User;
+    authService.getCurrentUser.and.returnValue(author)
+
+  localStorage.setItem('authUser',JSON.stringify(author))
   let component: CommentComponent;
   let fixture: ComponentFixture<CommentComponent>;
-  let authService;
+  
+  
   let postServiceSpyObj = jasmine.createSpyObj<PostService>('PostService',[ 'upsertPost', 'deleteUserPost']);
   let toUpsert:Post;
   let e = jasmine.createSpyObj('e', ['preventDefault'])
+ 
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,9 +36,7 @@ describe('CommentComponent', () => {
     })
     .compileComponents();
 
-    let author:User = new User(0,"email","Jan","Hus",new Date(), "A", "A", "");
-    authService = TestBed.inject(AuthService);
-    authService.currentUser = author;
+    
 
     fixture = TestBed.createComponent(CommentComponent);
     component = fixture.componentInstance;
@@ -51,7 +61,9 @@ describe('CommentComponent', () => {
     
   });
 
-  
+  it('should return author', () =>{
+    expect(author).toBe(authService.getCurrentUser());
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy();
