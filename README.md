@@ -31,8 +31,9 @@ This is the front end portion of the carrier-pigeon-ultra social media web appli
  </ul>
 
 # Instructions
-For an exhaustive list of required pacckages, see Startup.md.
+
 To view the deployed application, go to http://codepipeline-us-west-2-791209503483.s3-website-us-west-2.amazonaws.com.
-To run the applcation locally, clone the project, navigate to the project root directory and enter the command "ng serve -o"
+To run the applcation locally, clone the project, navigate to the project root directory and enter the command "ng serve -o". 
+Thorough instructions are availible in <a href='https://github.com/carrier-pigeon-ultra/P3-front-end/blob/main/STARTUP.md'>STARTUP.md<a>.
 
 
