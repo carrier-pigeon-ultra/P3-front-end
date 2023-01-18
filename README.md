@@ -2,28 +2,32 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
-## Development server
+# Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This is the front end portion of the carrier-pigeon-ultra social media web application, the backend can be found at https://github.com/carrier-pigeon-ultra/P3-back-end
 
-## Code scaffolding
+# Software versions
+Node: 18.70
+Node Package Manager: 8.15.0
+TypeScript Compiler: 4.9.4
+JavaScript: es2020
+angular: 14.0.6
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Contributers
+Blake Rhynes - blaker859
+Robert Lei - SleepingGlaceon
+Ryan Knight - RyanReedKnight
+Nuru Hussein - Kankoo1
 
-## Build
+# Features we developed
+- User search: users can search for other users in search bar and view profiles.
+- Profile: users can create a profile by registering, this profile can be eddited.
+- Reset password: Users can reset their passwords via gmail smtp.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+# Instructions
+For an exhaustive list of required pacckages, see Startup.md.
+To view the deployed application, go to http://codepipeline-us-west-2-791209503483.s3-website-us-west-2.amazonaws.com.
+To run the applcation locally, clone the project, navigate to the project root directory and enter the command "ng serve -o"
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 # P3-front-end
 This is a repository for Front-End final project on Social Media Application
