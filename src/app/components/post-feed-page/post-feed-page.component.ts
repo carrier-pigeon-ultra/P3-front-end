@@ -24,6 +24,7 @@ export class PostFeedPageComponent implements OnInit {
 
   posts: Post[] = [];
   createPost: boolean = false;
+  
 
   constructor(
     private postService: PostService,
@@ -48,7 +49,7 @@ export class PostFeedPageComponent implements OnInit {
           0,
           this.postForm.value.text || '',
           this.postForm.value.imageUrl || '',
-          this.authService.currentUser,
+          this.authService.getCurrentUser(),
           [],
           'Top'
         )

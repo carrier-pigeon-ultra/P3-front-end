@@ -22,17 +22,8 @@ export class EditProfileFormComponent implements OnInit {
   constructor(private authService:AuthService, private editUserService:EditUserService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
-    this.editProfileForm = new FormGroup({
-      firstName: new FormControl(this.user.firstName),
-      lastName: new FormControl(this.user.lastName),
-      email: new FormControl(this.user.email),
-      birthday: new FormControl(this.user.birthday),
-      hometown:new FormControl(this.user.hometown),
-      currentResidence: new FormControl(this.user.currentResidence),
-      biography: new FormControl(this.user.biography)
-      
-    })
+    this.user = this.authService.getCurrentUser();
+    this.updateForm();
   }
 
   onSave(event:any):void {
@@ -47,12 +38,30 @@ export class EditProfileFormComponent implements OnInit {
 
     this.editUserService.updateUserProfile(this.user).subscribe(
       {
+        next: (response) => { 
+          //this.user = response as User
+          localStorage.setItem('authUser',JSON.stringify(this.user))
+        },
         error: (error) => { console.log(error)}
       }
     )
 
     this.editComplete.emit(true);
+    this.updateForm();
 
+  }
+
+  updateForm() : void {
+    this.editProfileForm = new FormGroup({
+      firstName: new FormControl(this.user.firstName),
+      lastName: new FormControl(this.user.lastName),
+      email: new FormControl(this.user.email),
+      birthday: new FormControl(this.user.birthday),
+      hometown:new FormControl(this.user.hometown),
+      currentResidence: new FormControl(this.user.currentResidence),
+      biography: new FormControl(this.user.biography)
+      
+    })
   }
 
 }

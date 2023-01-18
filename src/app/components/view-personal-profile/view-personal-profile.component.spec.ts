@@ -13,7 +13,7 @@ describe('ViewPersonalProfileComponent', () => {
   let component: ViewPersonalProfileComponent;
   let fixture: ComponentFixture<ViewPersonalProfileComponent>;
 
-  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus` }
+  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus`, biography:"", hometown: '',currentResidence:"",birthday:new Date() }
 
   // Set up service spy for PostService
   let postServiceSpy:jasmine.SpyObj<PostService> = jasmine.createSpyObj("PostService", ["getUserPosts"]);

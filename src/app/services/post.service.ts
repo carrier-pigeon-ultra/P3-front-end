@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Post from '../models/Post';
 import User from '../models/User'
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import User from '../models/User'
 export class PostService {
   postUrl: string = `${environment.baseUrl}/post`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService:AuthService) {}
 
   getAllPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.postUrl}`, {
@@ -22,28 +23,28 @@ export class PostService {
 
   getAllTopPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.postUrl}/feed`, {
-      headers: environment.headers,
+      headers: this.authService.getAuthenticationHeaders(),
       withCredentials: environment.withCredentials,
     });
   }
 
   upsertPost(post: Post): Observable<Post> {
     return this.http.put<Post>(`${this.postUrl}`, post, {
-      headers: environment.headers,
+      headers: this.authService.getAuthenticationHeaders(),
       withCredentials: environment.withCredentials,
     });
   }
 
   getUserPosts(user:User):Observable<Post[]> {
     return this.http.get<Post[]>( `${this.postUrl}/${user.id}`, { 
-      headers: environment.headers, 
+      headers: this.authService.getAuthenticationHeaders(), 
       withCredentials: environment.withCredentials,
     });
   }
 
   deleteUserPost(user:User, post:Post): Observable<Post> {
     return this.http.delete<Post>(`${this.postUrl}/${post.id}`, {
-      headers: environment.headers,
+      headers: this.authService.getAuthenticationHeaders(),
       withCredentials: environment.withCredentials,
     });
   }

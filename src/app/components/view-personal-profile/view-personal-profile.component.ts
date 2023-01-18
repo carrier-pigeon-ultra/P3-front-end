@@ -19,7 +19,7 @@ export class ViewPersonalProfileComponent implements OnInit {
   constructor(private authService: AuthService, private postService:PostService) { }
 
   ngOnInit(): void {
-    this.user = this.authService.currentUser;
+    this.user = this.authService.getCurrentUser();
     this.getUserPosts();
     this.edit = false;
   }
@@ -27,7 +27,7 @@ export class ViewPersonalProfileComponent implements OnInit {
   getUserPosts():void {
     this.postService.getUserPosts(this.user).subscribe( 
       (response) => { this.posts = response; },
-      //error: (error) => { console.log(error); }
+ 
     )
   }
 

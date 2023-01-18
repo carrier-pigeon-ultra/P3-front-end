@@ -7,6 +7,7 @@ export default class User {
     hometown:string
     currentResidence:string
     biography: string
+    passwordResetToken:string
 
     constructor (id: number, email: string, firstName: string, lastName: string, 
         birthday:Date, hometown:string, currentResidence:string, biography:string) {
@@ -18,5 +19,6 @@ export default class User {
         this.hometown = hometown
         this.currentResidence = currentResidence
         this.biography = biography
+        this.passwordResetToken="";
     }
 }

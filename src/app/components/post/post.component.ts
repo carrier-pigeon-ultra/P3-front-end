@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import Post from 'src/app/models/Post';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service';
+
 
 @Component({
   selector: 'app-post',
@@ -13,7 +14,7 @@ export class PostComponent implements OnInit {
   commentForm = new FormGroup({
     text: new FormControl(''),
   });
-
+  @Output() postDeleted = new EventEmitter<boolean>;
   @Input('post') post: Post;
   replyToPost: boolean = false;
 
@@ -27,7 +28,7 @@ export class PostComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.postBelongsToAuthUser = (this.post && this.authService.currentUser.id === this.post.author.id )
+    this.postBelongsToAuthUser = (this.post && this.authService.getCurrentUser().id === this.post.author.id )
 
   }
 
@@ -37,12 +38,12 @@ export class PostComponent implements OnInit {
 
   deletePost():void {
     if(this.postBelongsToAuthUser) {
-      this.postService.deleteUserPost(this.authService.currentUser, this.post).subscribe(
+      this.postService.deleteUserPost(this.authService.getCurrentUser(), this.post).subscribe(
         {
           error: (error) => { console.log(error) }
         }
       );
-      location.reload();
+      this.postDeleted.emit(true);
     }
   }
 
