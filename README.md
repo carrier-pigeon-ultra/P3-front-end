@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Description
 
-This is the front end portion of the carrier-pigeon-ultra social media web application, the backend can be found at https://github.com/carrier-pigeon-ultra/P3-back-end. This is the which concludes our 10 week training with Revature.
+This is the front end portion of the carrier-pigeon-ultra social media web application, the backend can be found at https://github.com/carrier-pigeon-ultra/P3-back-end.
 
 # Software versions
 <ul>
