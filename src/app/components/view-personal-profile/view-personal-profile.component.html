@@ -1,27 +1,39 @@
 <app-navbar></app-navbar>
-<div class="center">
-   
 
-    <mat-card-content>
-        <div id="profile-picture" class="center"></div>
-        <div *ngIf="!edit; else loadEditForm">
-            <app-biography-card [user]="user"></app-biography-card>
-            <button (click)="setEditTrue()"> Edit Profile </button>
-        </div>
-        <ng-template #loadEditForm>
-            <app-edit-profile-form (editComplete)="setEditFalse()"></app-edit-profile-form>
-        </ng-template>
+<mat-card-content>
+  <div class="container">
+    <div id="profile-picture" class="center"></div>
+    <div *ngIf="!edit; else loadEditForm">
+      <app-biography-card
+        class="transparent-card"
+        [user]="user"
+      ></app-biography-card>
+      <button
+        mat-raised-button
+        color=""
+        style="
+          background-color: rgb(72, 61, 139, 0.607);
+          margin-left: 50%;
+          margin-right: 50%;
+        "
+        class=""
+        (click)="setEditTrue()"
+      >
+        Edit Profile
+      </button>
+    </div>
+    <ng-template #loadEditForm>
+      <app-edit-profile-form
+        (editComplete)="setEditFalse()"
+      ></app-edit-profile-form>
+    </ng-template>
 
+    <div [ngClass]="['sidebyside', 'post-feed-container']">
+      <div id="post-feed" *ngFor="let post of posts">
+        <app-post [post]="post"></app-post>
+      </div>
+    </div>
+  </div>
+</mat-card-content>
 
-        <div [ngClass]="['sidebyside', 'post-feed-container']">
-            <div id="post-feed" *ngFor="let post of posts">
-                <app-post [post]="post"></app-post>
-            </div>
-        </div>
-
-    </mat-card-content>
-</div>
 <footer></footer>
-
-
-

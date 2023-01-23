@@ -1,27 +1,82 @@
-
-<form class="form" [formGroup]="editProfileForm" (ngSubmit)="onSave($event)" style="margin:5px;color:black; background-color: aliceblue;">
-    <mat-card-content>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Email" formControlName="email" style="color: beige;">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="First Name" formControlName="firstName">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Last Name" formControlName="lastName">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input type="date" matInput placeholder="Birthday" formControlName="birthday">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Hometown" formControlName="hometown">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Current Residence" formControlName="currentResidence">
-      </mat-form-field>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Biography" formControlName="biography">
-      </mat-form-field>
-    </mat-card-content>
-    <button mat-stroked-button color="accent" class="btn-block">Save Profile</button>
-  </form>   
+<form
+  class="form"
+  [formGroup]="editProfileForm"
+  (ngSubmit)="onSave($event)"
+  style="margin: 25px; color: beige; background-color: rgb(72, 61, 139, 0)"
+>
+  <mat-card-content
+    style="
+      color: beige;
+      width: 50%;
+      background-color: rgb(72, 61, 139, 0.607);
+      margin-left: auto;
+      margin-right: auto;
+    "
+  >
+    <mat-form-field class="full-width" style="color: beige">
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="email"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="First Name"
+        formControlName="firstName"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Last Name"
+        formControlName="lastName"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        type="date"
+        matInput
+        placeholder="Birthday"
+        formControlName="birthday"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Hometown"
+        formControlName="hometown"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Current Residence"
+        formControlName="currentResidence"
+        style="color: beige"
+      />
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="Biography"
+        formControlName="biography"
+        style="color: beige"
+      />
+    </mat-form-field>
+  </mat-card-content>
+  <button
+    mat-stroked-button
+    color=""
+    class="btn-block"
+    style="background-color: rgb(72, 61, 139, 0.607); width: 100%"
+  >
+    Save Profile
+  </button>
+</form>
