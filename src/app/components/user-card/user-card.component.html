@@ -1,16 +1,20 @@
- <mat-card class="user-card">
-    <div class="user-circle"></div>
-    <mat-divider></mat-divider>
-    <p style="padding-top: 1em; font-weight: bold">
-        {{ user.firstName }} {{ user.lastName }}
-    </p>
-    <p>
-        {{ user.email }}
-    </p>
+<mat-card class="user-card">
+  <div class="user-circle"></div>
+  <mat-divider></mat-divider>
+  <p style="padding-top: 1em; font-weight: bold">
+    {{ user.firstName }} {{ user.lastName }}
+  </p>
+  <p>
+    {{ user.email }}
+  </p>
 
-    <a routerLinkActive="active" routerLink="/my-profile">
-        <button mat-raised-button color="primary">My Profile</button>
-    </a>
-
-    
+  <a routerLinkActive="active" routerLink="/my-profile">
+    <button
+      mat-raised-button
+      color=""
+      style="background-color: rgb(72, 61, 139, 0.607)"
+    >
+      My Profile
+    </button>
+  </a>
 </mat-card>

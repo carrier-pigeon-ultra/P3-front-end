@@ -6,9 +6,10 @@ body {
 }
 body {
   margin: 0;
+  width: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
-  background: #1d1b1b;
+  background: #1d1b1b00;
 }
 .app-header {
   justify-content: space-between;
@@ -225,3 +226,7 @@ body {
 .card-header {
   width: 100%;
 }
+/* 
+html {
+  background-image: url("./assets/images/dark-mode-t.jpg");
+} */

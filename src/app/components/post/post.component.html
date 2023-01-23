@@ -5,7 +5,9 @@
       <mat-card-title
         >{{ post.author.firstName }} {{ post.author.lastName }}</mat-card-title
       >
-      <mat-card-subtitle>{{ post.author.email }}</mat-card-subtitle>
+      <mat-card-subtitle style="color: beige">{{
+        post.author.email
+      }}</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
@@ -23,7 +25,12 @@
       </div>
     </mat-card-content>
     <mat-card-actions align="end">
-      <button mat-raised-button color="primary" (click)="toggleReplyToPost()">
+      <button
+        mat-raised-button
+        color=""
+        style="background-color: rgb(72, 61, 139, 0.607)"
+        (click)="toggleReplyToPost()"
+      >
         Reply
       </button>
       <button (click)="deletePost()" *ngIf="postBelongsToAuthUser">
@@ -42,14 +49,26 @@
           matInput
           autofocus
           formControlName="text"
-          style="color: azure"
+          style="color: beige"
         ></textarea>
       </mat-form-field>
-      <div align="end" style="color: azure">
-        <button mat-raised-button color="warn" (click)="toggleReplyToPost()">
+      <div align="end" style="color: beige">
+        <button
+          mat-raised-button
+          color="warn"
+          style="background-color: rgba(107, 6, 6, 0.607)"
+          (click)="toggleReplyToPost()"
+        >
           Cancel
         </button>
-        <button mat-raised-button color="primary" type="submit">Post</button>
+        <button
+          mat-raised-button
+          color=""
+          style="background-color: rgb(72, 61, 139, 0.607)"
+          type="submit"
+        >
+          Post
+        </button>
       </div>
     </form>
   </mat-card>
