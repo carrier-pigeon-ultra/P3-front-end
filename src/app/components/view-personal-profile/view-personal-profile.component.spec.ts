@@ -13,10 +13,13 @@ describe('ViewPersonalProfileComponent', () => {
   let component: ViewPersonalProfileComponent;
   let fixture: ComponentFixture<ViewPersonalProfileComponent>;
 
-  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus`, biography:"", hometown: '',currentResidence:"",birthday:new Date() }
+  let user:User = { id:1, email: `test@gmail.com`, firstName:`Jan`, lastName:`Hus`, biography:"", hometown: '',currentResidence:"",birthday:new Date() , passwordResetToken: ""}
 
   // Set up service spy for PostService
   let postServiceSpy:jasmine.SpyObj<PostService> = jasmine.createSpyObj("PostService", ["getUserPosts"]);
+
+  
+
   postServiceSpy.getAllPosts.and.returnValue( defer( () => Promise.resolve(
         [
           { id: 1, text: `test`, imageUrl: `test`, author: user, comments: [], postType: `test` },
@@ -29,7 +32,8 @@ describe('ViewPersonalProfileComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [``],
-      declarations: [ ViewPersonalProfileComponent ]
+      declarations: [ ViewPersonalProfileComponent ],
+      providers:[AuthService]
     })
     .compileComponents();
 
@@ -48,6 +52,7 @@ describe('ViewPersonalProfileComponent', () => {
   });*/
 
   it('should create', () => {
+  
     expect(component).toBeTruthy();
   });
 

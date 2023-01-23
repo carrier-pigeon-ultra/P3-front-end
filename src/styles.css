@@ -8,7 +8,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
-  background: #e2e2e2;
+  background: #1d1b1b;
 }
 .app-header {
   justify-content: space-between;
@@ -27,7 +27,6 @@ body {
   text-decoration: none;
   color: #ffffff;
 }
-
 .box.back {
   transform: scale(0.95);
   -webkit-transform: scale(0.95);
@@ -101,12 +100,12 @@ body {
 
   margin-bottom: 1em;
 
-  background-image: url("./assets/images/favicon.png");
+  background-image: url("./assets/images/pigeon.png");
   background-size: cover;
 }
 
 .user-card {
-  width: 10em;
+  width: 100%;
   text-align: center;
   margin: 1em;
 }
@@ -119,6 +118,7 @@ body {
 .post-feed-container {
   width: 80%;
   margin-top: 1em;
+  padding-left: 5%;
 }
 
 .full-width {
@@ -126,19 +126,29 @@ body {
 }
 
 .header-image {
-  background-image: url("./assets/images/favicon.png");
+  background-image: url("./assets/images/pigeon.png");
   background-size: cover;
 
   border: 1px solid #888080;
 }
 
 #post-feed {
-  width: 60%;
+  width: 100%;
   align-content: center;
 }
 
 .post-card {
   margin-bottom: 1em;
+  color: silver;
+}
+
+.mat-card {
+  color: beige;
+  background: darkslategrey;
+}
+
+.mat-label {
+  color: white;
 }
 
 .form {

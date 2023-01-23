@@ -7,21 +7,21 @@
 </div>
 
 <div [ngClass]="['sidebyside', 'post-feed-container']"> 
-    <form class="form" *ngIf="!createPost; else createPostTemplate">
+    <form class="form" *ngIf="!createPost; else createPostTemplate" style="color: azure">
         <mat-form-field class="full-width" appearance="fill">
-            <mat-label>Something on your mind?</mat-label>
+            <mat-label style="color: azure;">Something on your mind?</mat-label>
             <input matInput (focus)="toggleCreatePost()">
         </mat-form-field>
     </form>
 
     <ng-template #createPostTemplate>
-        <form class="form" [formGroup]="postForm" (ngSubmit)="submitPost($event)">
-            <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Make a Post</mat-label>
+        <form class="form" [formGroup]="postForm" (ngSubmit)="submitPost($event)" style="color: azure; background-color: black;">
+            <mat-form-field class="full-width" appearance="fill" style="color: azure;">
+                <mat-label style="color: azure;">Make a Post</mat-label>
                 <textarea matInput autofocus formControlName="text"></textarea>
             </mat-form-field>
             <mat-form-field class="full-width" appearance="fill">
-                <mat-label>Add an Image?</mat-label>
+                <mat-label style="color:azure">Add an Image?</mat-label>
                 <input matInput formControlName="imageUrl">
             </mat-form-field>
             <div align="end">
