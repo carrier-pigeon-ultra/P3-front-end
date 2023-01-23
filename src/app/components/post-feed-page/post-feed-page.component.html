@@ -24,18 +24,28 @@
       style="color: azure; background-color: rgba(0, 0, 0, 0.0005)"
     >
       <mat-form-field class="full-width" appearance="fill" style="color: azure">
-        <mat-label style="color: azure">Make a Post</mat-label>
+        <mat-label style="color: beige">Make a Post</mat-label>
         <textarea matInput autofocus formControlName="text"></textarea>
       </mat-form-field>
       <mat-form-field class="full-width" appearance="fill">
-        <mat-label style="color: azure">Add an Image?</mat-label>
+        <mat-label style="color: beige">Add an Image?</mat-label>
         <input matInput formControlName="imageUrl" />
       </mat-form-field>
       <div align="end">
-        <button mat-raised-button color="warn" (click)="toggleCreatePost()">
+        <button
+          mat-raised-button
+          color=""
+          style="background-color: rgba(107, 6, 6, 0.607)"
+          (click)="toggleCreatePost()"
+        >
           Cancel
         </button>
-        <button mat-raised-button color="primary" (click)="submitPost($event)">
+        <button
+          mat-raised-button
+          color=""
+          style="background-color: rgb(72, 61, 139, 0.607)"
+          (click)="submitPost($event)"
+        >
           Post
         </button>
       </div>
