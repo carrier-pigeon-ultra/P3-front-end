@@ -1,16 +1,22 @@
 <div
-  class="login-wrapper transparent-card"
+  class="login-wrapper"
   fxLayout="row"
   fxLayoutAlign="center center"
+  style="color: beige"
 >
-  <mat-card class="box">
+  <mat-card class="box transparent-card">
     <mat-card-header>
       <mat-card-title>Log in</mat-card-title>
     </mat-card-header>
     <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit($event)">
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email" formControlName="email" />
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            style="color: beige"
+          />
         </mat-form-field>
         <mat-form-field class="full-width">
           <input
@@ -26,7 +32,7 @@
         color="accent"
         class="btn-block"
         type="submit"
-        style="background-color: rgba(255, 255, 255, 0.2)"
+        style="color: beige; background-color: rgba(255, 255, 255, 0.2)"
       >
         Log in
       </button>
