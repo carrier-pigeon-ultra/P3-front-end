@@ -6,25 +6,52 @@
     <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit($event)">
       <mat-card-content>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Email" formControlName="email">
+          <input matInput placeholder="Email" formControlName="email" />
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Password" type="password" formControlName="password">
+          <input
+            matInput
+            placeholder="Password"
+            type="password"
+            formControlName="password"
+          />
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="First Name" formControlName="firstName">
+          <input
+            matInput
+            placeholder="First Name"
+            formControlName="firstName"
+          />
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input matInput placeholder="Last Name" formControlName="lastName">
+          <input matInput placeholder="Last Name" formControlName="lastName" />
         </mat-form-field>
         <mat-form-field class="full-width">
-          <input type="date" matInput placeholder="Birthday (dd/mm/yyyy)" formControlName="birthday">
+          <input
+            type="date"
+            matInput
+            placeholder="Birthday (dd/mm/yyyy)"
+            formControlName="birthday"
+          />
         </mat-form-field>
       </mat-card-content>
-      <button mat-stroked-button color="accent" class="btn-block" type="submit">Register</button>
+      <button
+        mat-stroked-button
+        color="accent"
+        class="btn-block"
+        type="submit"
+        style="color: beige; background-color: rgba(255, 255, 255, 0.2)"
+      >
+        Register
+      </button>
     </form>
-    <a class="login-rerout-link" [routerLink]="['/login']">Already have an account?</a>
-   
+    <a class="login-rerout-link" style="color: beige" [routerLink]="['/login']"
+      >Already have an account?</a
+    >
   </mat-card>
 </div>
-<p *ngIf="badRegisterAttempt"> Registration failed, ensure all fields are full, and that password has 8 or more characters, with one uppercase  and lowercase letter, as well as one number</p>
+<p style="color: beige" *ngIf="badRegisterAttempt">
+  Registration failed, ensure all fields are full, and that password has 8 or
+  more characters, with one uppercase and lowercase letter, as well as one
+  number
+</p>
