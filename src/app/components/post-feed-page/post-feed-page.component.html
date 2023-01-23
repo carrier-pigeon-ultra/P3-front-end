@@ -11,7 +11,7 @@
     style="color: azure"
   >
     <mat-form-field class="full-width" appearance="fill">
-      <mat-label style="color: azure">Something on your mind?</mat-label>
+      <mat-label style="color: beige">Something on your mind?</mat-label>
       <input matInput (focus)="toggleCreatePost()" />
     </mat-form-field>
   </form>
@@ -21,7 +21,7 @@
       class="form"
       [formGroup]="postForm"
       (ngSubmit)="submitPost($event)"
-      style="color: azure; background-color: black"
+      style="color: azure; background-color: rgba(0, 0, 0, 0.0005)"
     >
       <mat-form-field class="full-width" appearance="fill" style="color: azure">
         <mat-label style="color: azure">Make a Post</mat-label>
