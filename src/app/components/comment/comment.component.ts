@@ -26,7 +26,7 @@ export class CommentComponent implements OnInit {
   ngOnInit(): void {
 
     this.commentBelongsToAuthUser = (this.authService.getCurrentUser().id === this.inputComment.author.id );
-    this.replyToComment = false;
+    //this.replyToComment = false;
 
   }
 
@@ -57,7 +57,7 @@ export class CommentComponent implements OnInit {
 
   deletePost():void {
     if(this.commentBelongsToAuthUser) {
-      this.postService.deleteUserPost(this.authService.currentUser, this.inputComment).subscribe(
+      this.postService.deleteUserPost(this.authService.getCurrentUser(), this.inputComment).subscribe(
         {
           error: (error) => { console.log(error) }
         }

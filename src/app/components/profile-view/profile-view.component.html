@@ -6,11 +6,12 @@
    
     
     <mat-card-content>
-        <div id="profile-picture" class="sidebyside"></div>
+        <div id="profile-picture" class="sidebyside" style="padding-left: 10%; width: 500px;"></div>
        
+        <div style="padding: 15%; position: relative;;">
         <app-biography-card  [user]="user"></app-biography-card> 
         <button (click)="showFeed()" *ngIf="!feed; else feedVisible">View Feed</button>
-
+        </div>
 
         <ng-template #feedVisible>
             <button (click)="hideFeed()" >Hide Feed</button>
